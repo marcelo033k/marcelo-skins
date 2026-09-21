@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcelo Skins</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-emerald-500 selection:text-black">
+
+    <!-- Cabeçalho -->
+    <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="bg-emerald-500 text-slate-950 p-2 rounded-xl font-black text-lg">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight">Marcelo Skins</h1>
+                    <p class="text-xs text-emerald-400 font-medium">Skins Exclusivas para Jogos de Caminhão</p>
+                </div>
+            </div>
+            <span class="text-xs bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-full text-slate-300">
+                <i class="fa-solid fa-circle text-[8px] text-emerald-500 mr-1 animate-pulse"></i> Online
+            </span>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="flex-grow max-w-4xl mx-auto px-4 py-6 w-full space-y-6">
+
+        <!-- Barra de Pesquisa -->
+        <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <input type="text" id="searchInput" placeholder="Buscar por caminhão, jogo ou empresa..." 
+                class="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-11 pr-4 py-3.5 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors">
+        </div>
+
+        <!-- Grade de Skins -->
+        <div id="skinsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <!-- Exemplo de Skin 1 -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden flex flex-col transition-all hover:border-slate-700">
+                <div class="relative h-48 bg-slate-800 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80" alt="Skin Caminhão" class="w-full h-full object-cover">
+                    <span class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md text-emerald-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-slate-800">
+                        Global Truck
+                    </span>
+                </div>
+                <div class="p-4 flex flex-col flex-grow justify-between space-y-4">
+                    <div>
+                        <h3 class="font-bold text-base text-slate-100">Scania R620 - Edição Especial</h3>
+                        <p class="text-xs text-slate-400 mt-1">Criado por: <span class="text-slate-200 font-medium">Marcelo</span></p>
+                    </div>
+                    <button onclick="copyUrl('SUA_URL_DO_GERADOR_AQUI')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 px-4 rounded-xl text-sm flex items-center justify-center space-x-2 transition-colors active:scale-95">
+                        <i class="fa-solid fa-copy"></i>
+                        <span>Copiar URL da Skin</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Exemplo de Skin 2 -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden flex flex-col transition-all hover:border-slate-700">
+                <div class="relative h-48 bg-slate-800 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=600&q=80" alt="Skin Caminhão" class="w-full h-full object-cover">
+                    <span class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md text-emerald-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-slate-800">
+                        Outro Jogo
+                    </span>
+                </div>
+                <div class="p-4 flex flex-col flex-grow justify-between space-y-4">
+                    <div>
+                        <h3 class="font-bold text-base text-slate-100">Volvo FH - Rota Sul</h3>
+                        <p class="text-xs text-slate-400 mt-1">Criado por: <span class="text-slate-200 font-medium">Marcelo</span></p>
+                    </div>
+                    <button onclick="copyUrl('SUA_URL_DO_GERADOR_AQUI')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 px-4 rounded-xl text-sm flex items-center justify-center space-x-2 transition-colors active:scale-95">
+                        <i class="fa-solid fa-copy"></i>
+                        <span>Copiar URL da Skin</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="border-t border-slate-900 py-6 text-center text-xs text-slate-500">
+        <p>&copy; 2026 Marcelo Skins. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Notificação Flutuante -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-emerald-500 text-slate-950 px-5 py-3 rounded-2xl font-bold text-sm shadow-xl transition-all duration-300 opacity-0 pointer-events-none flex items-center space-x-2 z-50">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>URL copiada com sucesso!</span>
+    </div>
+
+    <!-- Script de Funcionalidades -->
+    <script>
+        // Função para copiar URL gerada
+        function copyUrl(url) {
+            navigator.clipboard.writeText(url).then(() => {
+                showToast();
+            }).catch(err => {
+                alert('Erro ao copiar URL');
+            });
+        }
+
+        // Mostrar aviso flutuante
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            toast.classList.add('opacity-100');
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 2000);
+        }
+
+        // Sistema de Pesquisa
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('#skinsGrid > div');
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(term) ? 'flex' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

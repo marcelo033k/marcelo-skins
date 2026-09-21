@@ -35,18 +35,18 @@
             <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </span>
-            <input type="text" id="searchInput" placeholder="Buscar por caminhão, jogo ou empresa..." 
+            <input type="text" id="searchInput" placeholder="Buscar por caminhão ou empresa..." 
                 class="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-11 pr-4 py-3.5 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors">
         </div>
 
         <!-- Grade de Skins -->
         <div id="skinsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             
-            <!-- Exemplo de Skin 1 -->
+            <!-- Skin 1: Global Truck (Destaque Principal) -->
             <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden flex flex-col transition-all hover:border-slate-700">
                 <div class="relative h-48 bg-slate-800 overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80" alt="Skin Caminhão" class="w-full h-full object-cover">
-                    <span class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md text-emerald-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-slate-800">
+                    <span class="absolute top-3 right-3 bg-emerald-500 text-slate-950 text-xs font-bold px-3 py-1 rounded-full shadow-md">
                         Global Truck
                     </span>
                 </div>
@@ -62,22 +62,23 @@
                 </div>
             </div>
 
-            <!-- Exemplo de Skin 2 -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden flex flex-col transition-all hover:border-slate-700">
-                <div class="relative h-48 bg-slate-800 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=600&q=80" alt="Skin Caminhão" class="w-full h-full object-cover">
-                    <span class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md text-emerald-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-slate-800">
-                        Outro Jogo
-                    </span>
+            <!-- Skin 2: Em Breve -->
+            <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl overflow-hidden flex flex-col opacity-75">
+                <div class="relative h-48 bg-slate-800/50 overflow-hidden flex items-center justify-center">
+                    <div class="absolute inset-0 bg-slate-950/60 backdrop-blur-xs flex flex-col items-center justify-center text-center p-4">
+                        <i class="fa-solid fa-clock text-emerald-400 text-2xl mb-2 animate-bounce"></i>
+                        <span class="text-sm font-bold text-slate-200">Novidades Chegando</span>
+                        <p class="text-xs text-slate-400 mt-1">Skins para outros jogos em breve no ar!</p>
+                    </div>
                 </div>
                 <div class="p-4 flex flex-col flex-grow justify-between space-y-4">
                     <div>
-                        <h3 class="font-bold text-base text-slate-100">Volvo FH - Rota Sul</h3>
-                        <p class="text-xs text-slate-400 mt-1">Criado por: <span class="text-slate-200 font-medium">Marcelo</span></p>
+                        <h3 class="font-bold text-base text-slate-400">Próximo Jogo / Lançamento</h3>
+                        <p class="text-xs text-slate-500 mt-1">Aguarde novas criações</p>
                     </div>
-                    <button onclick="copyUrl('SUA_URL_DO_GERADOR_AQUI')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 px-4 rounded-xl text-sm flex items-center justify-center space-x-2 transition-colors active:scale-95">
-                        <i class="fa-solid fa-copy"></i>
-                        <span>Copiar URL da Skin</span>
+                    <button disabled class="w-full bg-slate-800 text-slate-500 font-medium py-3 px-4 rounded-xl text-sm flex items-center justify-center space-x-2 cursor-not-allowed">
+                        <i class="fa-solid fa-lock"></i>
+                        <span>Em Breve</span>
                     </button>
                 </div>
             </div>
@@ -98,7 +99,6 @@
 
     <!-- Script de Funcionalidades -->
     <script>
-        // Função para copiar URL gerada
         function copyUrl(url) {
             navigator.clipboard.writeText(url).then(() => {
                 showToast();
@@ -107,7 +107,6 @@
             });
         }
 
-        // Mostrar aviso flutuante
         function showToast() {
             const toast = document.getElementById('toast');
             toast.classList.remove('opacity-0', 'pointer-events-none');
@@ -118,7 +117,6 @@
             }, 2000);
         }
 
-        // Sistema de Pesquisa
         const searchInput = document.getElementById('searchInput');
         searchInput.addEventListener('input', (e) => {
             const term = e.target.value.toLowerCase();
@@ -130,4 +128,4 @@
         });
     </script>
 </body>
-</html>
+                                          </html>

@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-emerald-500 selection:text-black">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans">
 
     <!-- Cabeçalho -->
     <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
@@ -18,11 +18,11 @@
                 </div>
                 <div>
                     <h1 class="font-bold text-lg leading-tight">Marcelo Skins</h1>
-                    <p class="text-xs text-emerald-400 font-medium">Skins Exclusivas para Jogos de Caminhão</p>
+                    <p class="text-xs text-emerald-400 font-medium">Skins Exclusivas para Jogos</p>
                 </div>
             </div>
             <span class="text-xs bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-full text-slate-300">
-                <i class="fa-solid fa-circle text-[8px] text-emerald-500 mr-1 animate-pulse"></i> Online
+                <i class="fa-solid fa-circle text-[8px] text-emerald-500 mr-1"></i> Online
             </span>
         </div>
     </header>
@@ -30,133 +30,104 @@
     <!-- Conteúdo Principal -->
     <main class="flex-grow max-w-4xl mx-auto px-4 py-6 w-full space-y-6">
 
-        <!-- TELA 1: Lista de Jogos/Categorias -->
+        <!-- TELA 1: Home (Lista de Jogos) -->
         <div id="homeView" class="space-y-6">
             <!-- Barra de Pesquisa -->
             <div class="relative">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
-                <input type="text" id="searchInput" placeholder="Buscar categorias ou jogos..." 
-                    class="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-11 pr-4 py-3.5 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors">
+                <input type="text" id="searchInput" placeholder="Buscar categorias..." 
+                    class="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-11 pr-4 py-3.5 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500">
             </div>
 
-            <!-- Grade de Categorias / Jogos -->
+            <!-- Grade de Jogos -->
             <div id="skinsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 
-                <!-- Categoria 1: Skins Global Truck Online (Clicável) -->
-                <div onclick="openSkinsPage()" class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden flex flex-col transition-all hover:border-emerald-500/50 cursor-pointer group">
+                <!-- Card Global Truck (Clica e abre o carrossel) -->
+                <div onclick="openSkinsPage()" class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden flex flex-col cursor-pointer hover:border-emerald-500/50 transition-all">
                     <div class="relative h-48 bg-slate-900 overflow-hidden flex items-center justify-center">
-                        <img src="https://i.postimg.cc/7hPncQK3/file-00000000d2c0820eba94680e6e7fa08a.png" alt="Skins Global Truck Online" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                        <span class="absolute top-3 right-3 bg-emerald-500 text-slate-950 text-xs font-bold px-3 py-1 rounded-full shadow-md z-10">
+                        <img src="https://i.postimg.cc/7hPncQK3/file-00000000d2c0820eba94680e6e7fa08a.png" alt="Skins Global Truck Online" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-emerald-500 text-slate-950 text-xs font-bold px-3 py-1 rounded-full shadow-md">
                             Disponível
                         </span>
                     </div>
-                    <div class="p-4 flex flex-col flex-grow justify-between space-y-2">
-                        <div>
-                            <h3 class="font-bold text-lg text-slate-100 group-hover:text-emerald-400 transition-colors">Skins Global Truck Online</h3>
-                            <p class="text-xs text-slate-400 mt-1">Toque para ver todas as skins exclusivas disponíveis.</p>
-                        </div>
+                    <div class="p-4 space-y-2">
+                        <h3 class="font-bold text-lg text-slate-100">Skins Global Truck Online</h3>
+                        <p class="text-xs text-slate-400">Toque para ver as skins exclusivas.</p>
                         <div class="flex items-center text-xs font-bold text-emerald-400 pt-2">
-                            <span>Ver Skins</span>
+                            <span>Ver Apresentação</span>
                             <i class="fa-solid fa-arrow-right ml-2"></i>
                         </div>
                     </div>
                 </div>
 
-                <!-- Categoria 2: Em Breve -->
-                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl overflow-hidden flex flex-col opacity-75">
-                    <div class="relative h-48 bg-slate-800/50 overflow-hidden flex items-center justify-center">
-                        <div class="absolute inset-0 bg-slate-950/60 backdrop-blur-xs flex flex-col items-center justify-center text-center p-4">
-                            <i class="fa-solid fa-clock text-emerald-400 text-2xl mb-2 animate-bounce"></i>
-                            <span class="text-sm font-bold text-slate-200">Novos Jogos Chegando</span>
-                            <p class="text-xs text-slate-400 mt-1">Mais categorias em breve no ar!</p>
-                        </div>
+                <!-- Card Em Breve -->
+                <div class="bg-slate-900/60 border border-slate-800 rounded-2xl overflow-hidden flex flex-col opacity-75 p-4 justify-between">
+                    <div class="h-32 flex flex-col items-center justify-center text-center">
+                        <i class="fa-solid fa-clock text-emerald-400 text-2xl mb-2"></i>
+                        <span class="text-sm font-bold text-slate-200">Novos Jogos Chegando</span>
                     </div>
-                    <div class="p-4 flex flex-col flex-grow justify-between space-y-2">
-                        <div>
-                            <h3 class="font-bold text-lg text-slate-400">Outros Jogos de Caminhão</h3>
-                            <p class="text-xs text-slate-500 mt-1">Aguarde novas atualizações</p>
-                        </div>
-                        <div class="flex items-center text-xs font-medium text-slate-500 pt-2">
-                            <i class="fa-solid fa-lock mr-2"></i>
-                            <span>Em Breve</span>
-                        </div>
+                    <div class="text-xs text-slate-500 flex items-center pt-2 border-t border-slate-800">
+                        <i class="fa-solid fa-lock mr-2"></i> Em Breve
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <!-- TELA 2: Página de Skins do Global Truck (Carrossel) -->
+        <!-- TELA 2: Carrossel de Skins (Oculta por padrão) -->
         <div id="skinsView" class="hidden space-y-6">
             <!-- Botão de Voltar -->
-            <button onclick="closeSkinsPage()" class="bg-slate-900 border border-slate-800 hover:border-emerald-500 text-slate-200 px-4 py-2.5 rounded-xl text-sm font-medium flex items-center space-x-2 transition-colors">
+            <button onclick="closeSkinsPage()" class="bg-slate-900 border border-slate-800 text-slate-200 px-4 py-2.5 rounded-xl text-sm font-medium flex items-center space-x-2">
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>Voltar aos Jogos</span>
             </button>
 
-            <!-- Cabeçalho da Seção -->
+            <!-- Cabeçalho -->
             <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl flex items-center space-x-4">
-                <div class="bg-emerald-500/10 border border-emerald-500/20 p-3 rounded-xl text-emerald-400 text-xl">
+                <div class="bg-emerald-500/10 text-emerald-400 p-3 rounded-xl text-xl">
                     <i class="fa-solid fa-truck"></i>
                 </div>
                 <div>
-                    <h2 class="text-lg font-bold text-slate-100">Skins - Global Truck Online</h2>
-                    <p class="text-xs text-slate-400">Arraste para o lado para ver as apresentações e copiar os links.</p>
+                    <h2 class="text-lg font-bold text-slate-100">Global Truck Online</h2>
+                    <p class="text-xs text-slate-400">Arraste para o lado para ver as skins disponíveis.</p>
                 </div>
             </div>
 
-            <!-- CARROSSEL DE SKINS -->
-            <div class="relative">
-                <!-- Botões de Navegação lateral -->
-                <button onclick="scrollCarousel(-1)" class="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-slate-900/80 hover:bg-emerald-500 hover:text-slate-950 text-white w-10 h-10 rounded-full flex items-center justify-center border border-slate-700 shadow-lg backdrop-blur-md transition-all hidden sm:flex">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
-                <button onclick="scrollCarousel(1)" class="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-slate-900/80 hover:bg-emerald-500 hover:text-slate-950 text-white w-10 h-10 rounded-full flex items-center justify-center border border-slate-700 shadow-lg backdrop-blur-md transition-all hidden sm:flex">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-
-                <!-- Container do Carrossel -->
-                <div id="carouselContainer" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-4 pb-4 pt-1 px-1">
-                    
-                    <!-- Item 1: VIATURA DA POLÍCIA MILITAR DA BAHIA -->
-                    <div class="min-w-[85%] sm:min-w-[420px] snap-center bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden p-4 space-y-3 flex-shrink-0">
-                        <div class="relative h-56 bg-slate-800 rounded-xl overflow-hidden flex items-center justify-center">
-                            <!-- Troque o link da imagem da viatura aqui -->
-                            <img src="https://i.postimg.cc/7hPncQK3/file-00000000d2c0820eba94680e6e7fa08a.png" alt="Viatura Polícia Militar da Bahia" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md z-10">
-                                Exclusiva
-                            </span>
-                        </div>
-                        <div>
-                            <span class="text-[10px] bg-emerald-500/10 text-emerald-400 font-bold px-2.5 py-1 rounded-md border border-emerald-500/20">Global Truck Online</span>
-                            <h4 class="font-bold text-base text-slate-100 mt-2">VIATURA DA POLÍCIA MILITAR DA BAHIA</h4>
-                            <p class="text-xs text-slate-400 mt-0.5">Skin oficial detalhada e de alta qualidade.</p>
-                        </div>
-                        <button onclick="copyUrl('COLE_O_LINK_DA_SKIN_DA_VIATURA_AQUI')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 px-4 rounded-xl text-xs flex items-center justify-center space-x-2 transition-colors active:scale-95">
-                            <i class="fa-solid fa-copy"></i>
-                            <span>Copiar URL da Skin da Viatura</span>
-                        </button>
+            <!-- Carrossel -->
+            <div class="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory">
+                
+                <!-- Skin 1: Viatura PM BA -->
+                <div class="min-w-[85%] sm:min-w-[380px] snap-center bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3 flex-shrink-0">
+                    <div class="h-52 bg-slate-800 rounded-xl overflow-hidden">
+                        <img src="https://i.postimg.cc/7hPncQK3/file-00000000d2c0820eba94680e6e7fa08a.png" alt="Viatura PM BA" class="w-full h-full object-cover">
                     </div>
-
-                    <!-- Item 2: Em Breve -->
-                    <div class="min-w-[85%] sm:min-w-[420px] snap-center bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden p-4 space-y-3 flex-shrink-0 opacity-80">
-                        <div class="relative h-56 bg-slate-800 rounded-xl overflow-hidden flex items-center justify-center text-slate-500 text-xs">
-                            <span>Próxima Skin em Breve</span>
-                        </div>
-                        <div>
-                            <span class="text-[10px] bg-slate-800 text-slate-400 font-bold px-2.5 py-1 rounded-md">Em breve</span>
-                            <h4 class="font-bold text-base text-slate-300 mt-2">Mais Skins Chegando</h4>
-                            <p class="text-xs text-slate-500 mt-0.5">Aguarde novas adições ao catálogo.</p>
-                        </div>
-                        <button disabled class="w-full bg-slate-800 text-slate-500 font-medium py-3 px-4 rounded-xl text-xs flex items-center justify-center space-x-2 cursor-not-allowed">
-                            <i class="fa-solid fa-lock"></i>
-                            <span>Em Breve</span>
-                        </button>
+                    <div>
+                        <span class="text-[10px] bg-emerald-500/10 text-emerald-400 font-bold px-2.5 py-1 rounded-md">Destaque</span>
+                        <h4 class="font-bold text-base text-slate-100 mt-2">VIATURA DA POLÍCIA MILITAR DA BAHIA</h4>
+                        <p class="text-xs text-slate-400 mt-1">Skin de apresentação oficial.</p>
                     </div>
-
+                    <button onclick="copyUrl('COLE_O_LINK_DA_SKIN_AQUI')" class="w-full bg-emerald-500 text-slate-950 font-bold py-3 rounded-xl text-xs flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-copy"></i>
+                        <span>Copiar URL da Skin</span>
+                    </button>
                 </div>
+
+                <!-- Skin 2: Exemplo Próxima -->
+                <div class="min-w-[85%] sm:min-w-[380px] snap-center bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3 flex-shrink-0 opacity-70 flex flex-col justify-between">
+                    <div class="h-52 bg-slate-800/50 rounded-xl flex items-center justify-center text-slate-500 text-xs">
+                        Em breve mais skins
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-base text-slate-300">Próxima Skin</h4>
+                        <p class="text-xs text-slate-500 mt-1">Aguarde atualizações.</p>
+                    </div>
+                    <button disabled class="w-full bg-slate-800 text-slate-500 font-medium py-3 rounded-xl text-xs cursor-not-allowed">
+                        Em Breve
+                    </button>
+                </div>
+
             </div>
         </div>
 
@@ -164,16 +135,16 @@
 
     <!-- Rodapé -->
     <footer class="border-t border-slate-900 py-6 text-center text-xs text-slate-500">
-        <p>&copy; 2026 Marcelo Skins. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Marcelo Skins</p>
     </footer>
 
-    <!-- Notificação Flutuante -->
+    <!-- Notificação Toast -->
     <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-emerald-500 text-slate-950 px-5 py-3 rounded-2xl font-bold text-sm shadow-xl transition-all duration-300 opacity-0 pointer-events-none flex items-center space-x-2 z-50">
         <i class="fa-solid fa-circle-check"></i>
         <span>URL copiada com sucesso!</span>
     </div>
 
-    <!-- Script -->
+    <!-- Script Simples -->
     <script>
         function openSkinsPage() {
             document.getElementById('homeView').classList.add('hidden');
@@ -187,39 +158,15 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function scrollCarousel(direction) {
-            const container = document.getElementById('carouselContainer');
-            const scrollAmount = 350;
-            container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-        }
-
         function copyUrl(url) {
             navigator.clipboard.writeText(url).then(() => {
-                showToast();
-            }).catch(err => {
-                alert('Erro ao copiar URL');
-            });
-        }
-
-        function showToast() {
-            const toast = document.getElementById('toast');
-            toast.classList.remove('opacity-0', 'pointer-events-none');
-            toast.classList.add('opacity-100');
-            setTimeout(() => {
-                toast.classList.remove('opacity-100');
-                toast.classList.add('opacity-0', 'pointer-events-none');
-            }, 2000);
-        }
-
-        const searchInput = document.getElementById('searchInput');
-        if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                const term = e.target.value.toLowerCase();
-                const cards = document.querySelectorAll('#skinsGrid > div');
-                cards.forEach(card => {
-                    const text = card.innerText.toLowerCase();
-                    card.style.display = text.includes(term) ? 'flex' : 'none';
-                });
+                const toast = document.getElementById('toast');
+                toast.classList.remove('opacity-0', 'pointer-events-none');
+                toast.classList.add('opacity-100');
+                setTimeout(() => {
+                    toast.classList.remove('opacity-100');
+                    toast.classList.add('opacity-0', 'pointer-events-none');
+                }, 2000);
             });
         }
     </script>

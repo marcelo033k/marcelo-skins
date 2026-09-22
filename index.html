@@ -47,7 +47,6 @@
                 <!-- Card Global Truck (Capa da Categoria) -->
                 <div onclick="openSkinsPage()" class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden flex flex-col cursor-pointer hover:border-emerald-500/50 transition-all">
                     <div class="relative h-48 bg-slate-900 overflow-hidden flex items-center justify-center">
-                        <!-- Imagem de Capa do Jogo na Home -->
                         <img src="https://i.postimg.cc/7hPncQK3/file-00000000d2c0820eba94680e6e7fa08a.png" alt="Skins Global Truck Online" class="w-full h-full object-cover">
                         <span class="absolute top-3 right-3 bg-emerald-500 text-slate-950 text-xs font-bold px-3 py-1 rounded-full shadow-md">
                             Disponível
@@ -77,7 +76,7 @@
             </div>
         </div>
 
-        <!-- TELA 2: Carrossel de Skins (Oculta por padrão) -->
+        <!-- TELA 2: Carrossel de Skins (Global Truck) -->
         <div id="skinsView" class="hidden space-y-6">
             <!-- Botão de Voltar -->
             <button onclick="closeSkinsPage()" class="bg-slate-900 border border-slate-800 text-slate-200 px-4 py-2.5 rounded-xl text-sm font-medium flex items-center space-x-2">
@@ -99,20 +98,26 @@
             <!-- Carrossel -->
             <div class="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory">
                 
-                <!-- Skin 1: Viatura PM BA (Com a imagem específica da viatura e link dela) -->
-                <div class="min-w-[85%] sm:min-w-[380px] snap-center bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3 flex-shrink-0">
+                <!-- Skin 1: Viatura PM BA (Clicável para abrir Detalhes) -->
+                <div onclick="openDetailsPage()" class="min-w-[85%] sm:min-w-[380px] snap-center bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3 flex-shrink-0 cursor-pointer hover:border-emerald-500/50 transition-all">
                     <div class="h-52 bg-slate-800 rounded-xl overflow-hidden">
                         <img src="https://i.postimg.cc/MZd1r5Vb/file-00000000c2c8820ebe9803ad983dec34.png" alt="Viatura PM BA" class="w-full h-full object-cover">
                     </div>
-                    <div>
-                        <span class="text-[10px] bg-emerald-500/10 text-emerald-400 font-bold px-2.5 py-1 rounded-md">Destaque</span>
-                        <h4 class="font-bold text-base text-slate-100 mt-2">VIATURA DA POLÍCIA MILITAR DA BAHIA</h4>
-                        <p class="text-xs text-slate-400 mt-1">Skin de apresentação oficial.</p>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-[10px] bg-emerald-500/10 text-emerald-400 font-bold px-2.5 py-1 rounded-md">Destaque</span>
+                            <h4 class="font-bold text-base text-slate-100 mt-2">VIATURA DA POLÍCIA MILITAR DA BAHIA</h4>
+                        </div>
+                        <span class="text-xs text-slate-400 flex items-center space-x-1 bg-slate-800/80 px-2.5 py-1 rounded-full mt-2">
+                            <i class="fa-solid fa-eye text-emerald-400"></i>
+                            <span>1.428</span>
+                        </span>
                     </div>
-                    <button onclick="copyUrl('https://i.postimg.cc/MZd1r5Vb/file-00000000c2c8820ebe9803ad983dec34.png')" class="w-full bg-emerald-500 text-slate-950 font-bold py-3 rounded-xl text-xs flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-copy"></i>
-                        <span>Copiar URL da Skin</span>
-                    </button>
+                    <p class="text-xs text-slate-400">Toque para ver detalhes completos da skin.</p>
+                    <div class="w-full bg-emerald-500 text-slate-950 font-bold py-2.5 rounded-xl text-xs flex items-center justify-center space-x-2">
+                        <span>Ver Detalhes</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
                 </div>
 
                 <!-- Skin 2: Exemplo Próxima -->
@@ -132,6 +137,61 @@
             </div>
         </div>
 
+        <!-- TELA 3: Página de Detalhes da Viatura (Oculta por padrão) -->
+        <div id="detailsView" class="hidden space-y-6">
+            <!-- Botão de Voltar para o Carrossel -->
+            <button onclick="closeDetailsPage()" class="bg-slate-900 border border-slate-800 text-slate-200 px-4 py-2.5 rounded-xl text-sm font-medium flex items-center space-x-2">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Voltar às Skins</span>
+            </button>
+
+            <!-- Card Principal de Detalhes -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5 sm:p-6 space-y-6 shadow-2xl">
+                
+                <!-- Cabeçalho do Detalhe com Título Elegante e Contador de Visualizações -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+                    <div>
+                        <div class="flex items-center space-x-2 mb-2">
+                            <span class="text-xs bg-emerald-500/10 text-emerald-400 font-bold px-3 py-1 rounded-full border border-emerald-500/20">Global Truck Online</span>
+                            <span class="text-xs bg-blue-500/10 text-blue-400 font-bold px-3 py-1 rounded-full border border-blue-500/20">Oficial PMBA</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-emerald-400 tracking-wide uppercase">
+                            Viatura da Polícia Militar da Bahia
+                        </h2>
+                    </div>
+                    <!-- Olhinho de Visualizações -->
+                    <div class="flex items-center space-x-2 bg-slate-950/80 border border-slate-800 px-4 py-2 rounded-2xl self-start sm:self-auto">
+                        <i class="fa-solid fa-eye text-emerald-400 animate-pulse"></i>
+                        <span class="text-sm font-bold text-slate-200">1.428 <span class="text-xs text-slate-400 font-normal">visualizações</span></span>
+                    </div>
+                </div>
+
+                <!-- Imagem Grande de Apresentação -->
+                <div class="relative h-72 sm:h-96 bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 flex items-center justify-center">
+                    <img src="https://i.postimg.cc/MZd1r5Vb/file-00000000c2c8820ebe9803ad983dec34.png" alt="Viatura Polícia Militar da Bahia" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                </div>
+
+                <!-- Descrição e Detalhes -->
+                <div class="space-y-3">
+                    <h3 class="font-bold text-base text-slate-200 flex items-center space-x-2">
+                        <i class="fa-solid fa-circle-info text-emerald-400"></i>
+                        <span>Sobre esta Skin</span>
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Skin de alta qualidade e totalmente detalhada da Viatura Oficial da Polícia Militar da Estado da Bahia (PMBA) para o seu jogo de caminhão. Personalize seu veículo com o padrão operacional completo.
+                    </p>
+                </div>
+
+                <!-- Botão de Cópia Direta -->
+                <button onclick="copyUrl('https://i.postimg.cc/MZd1r5Vb/file-00000000c2c8820ebe9803ad983dec34.png')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-4 px-6 rounded-2xl text-sm flex items-center justify-center space-x-3 transition-transform active:scale-95 shadow-lg shadow-emerald-500/20">
+                    <i class="fa-solid fa-copy text-lg"></i>
+                    <span>Copiar URL Direta da Skin</span>
+                </button>
+
+            </div>
+        </div>
+
     </main>
 
     <!-- Rodapé -->
@@ -145,7 +205,7 @@
         <span>URL copiada com sucesso!</span>
     </div>
 
-    <!-- Script Simples -->
+    <!-- Script de Navegação e Cópia -->
     <script>
         function openSkinsPage() {
             document.getElementById('homeView').classList.add('hidden');
@@ -156,6 +216,18 @@
         function closeSkinsPage() {
             document.getElementById('skinsView').classList.add('hidden');
             document.getElementById('homeView').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openDetailsPage() {
+            document.getElementById('skinsView').classList.add('hidden');
+            document.getElementById('detailsView').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function closeDetailsPage() {
+            document.getElementById('detailsView').classList.add('hidden');
+            document.getElementById('skinsView').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 

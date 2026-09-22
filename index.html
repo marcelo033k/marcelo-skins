@@ -113,9 +113,9 @@
                             <span>1.428</span>
                         </span>
                     </div>
-                    <p class="text-xs text-slate-400">Toque para ver detalhes completos da skin.</p>
+                    <p class="text-xs text-slate-400">Toque para ver detalhes completos e fotos.</p>
                     <div class="w-full bg-emerald-500 text-slate-950 font-bold py-2.5 rounded-xl text-xs flex items-center justify-center space-x-2">
-                        <span>Ver Detalhes</span>
+                        <span>Ver Detalhes e Fotos</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </div>
                 </div>
@@ -137,7 +137,7 @@
             </div>
         </div>
 
-        <!-- TELA 3: Página de Detalhes da Viatura (Oculta por padrão) -->
+        <!-- TELA 3: Página de Detalhes da Viatura com Carrossel de 7 Fotos -->
         <div id="detailsView" class="hidden space-y-6">
             <!-- Botão de Voltar para o Carrossel -->
             <button onclick="closeDetailsPage()" class="bg-slate-900 border border-slate-800 text-slate-200 px-4 py-2.5 rounded-xl text-sm font-medium flex items-center space-x-2">
@@ -166,20 +166,66 @@
                     </div>
                 </div>
 
-                <!-- Imagem Grande de Apresentação -->
-                <div class="relative h-72 sm:h-96 bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 flex items-center justify-center">
-                    <img src="https://i.postimg.cc/MZd1r5Vb/file-00000000c2c8820ebe9803ad983dec34.png" alt="Viatura Polícia Militar da Bahia" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                <!-- CARROSSEL DE FOTOS DA DEMONSTRAÇÃO (7 Fotos Automáticas e Manuais) -->
+                <div class="space-y-3">
+                    <div class="relative h-72 sm:h-96 bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 flex items-center justify-center">
+                        
+                        <!-- Imagens do Carrossel -->
+                        <img id="carouselImage" src="https://i.postimg.cc/BLkXh6vD/lv-0-20260921220315.jpg" alt="Demonstração Viatura PMBA" class="w-full h-full object-cover transition-opacity duration-500">
+                        
+                        <!-- Gradiente Inferior -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none"></div>
+
+                        <!-- Botão Anterior -->
+                        <button onclick="prevSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-950/80 hover:bg-emerald-500 hover:text-slate-950 text-slate-200 w-10 h-10 rounded-full flex items-center justify-center border border-slate-800 shadow-lg transition-all">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+
+                        <!-- Botão Próximo -->
+                        <button onclick="nextSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-950/80 hover:bg-emerald-500 hover:text-slate-950 text-slate-200 w-10 h-10 rounded-full flex items-center justify-center border border-slate-800 shadow-lg transition-all">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+
+                        <!-- Indicador de Foto Atual (Badge) -->
+                        <div class="absolute bottom-4 left-4 bg-slate-950/80 border border-slate-800 px-3 py-1.5 rounded-full text-xs font-bold text-emerald-400">
+                            Foto <span id="currentSlideNum">1</span> de 7
+                        </div>
+                    </div>
+
+                    <!-- Miniaturas de Navegação Rápida -->
+                    <div class="flex gap-2 overflow-x-auto pb-2 pt-1">
+                        <button onclick="setSlide(0)" class="thumb-btn flex-shrink-0 w-16 h-12 rounded-xl overflow-hidden border-2 border-emerald-500 opacity-100 transition-all">
+                            <img src="https://i.postimg.cc/BLkXh6vD/lv-0-20260921220315.jpg" class="w-full h-full object-cover">
+                        </button>
+                        <button onclick="setSlide(1)" class="thumb-btn flex-shrink-0 w-16 h-12 rounded-xl overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition-all">
+                            <img src="https://i.postimg.cc/wtKRzF8r/lv-0-20260921220404.jpg" class="w-full h-full object-cover">
+                        </button>
+                        <button onclick="setSlide(2)" class="thumb-btn flex-shrink-0 w-16 h-12 rounded-xl overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition-all">
+                            <img src="https://i.postimg.cc/d7MZFnPx/lv-0-20260921220533.jpg" class="w-full h-full object-cover">
+                        </button>
+                        <button onclick="setSlide(3)" class="thumb-btn flex-shrink-0 w-16 h-12 rounded-xl overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition-all">
+                            <img src="https://i.postimg.cc/R3rJmG5b/lv-0-20260921220555.jpg" class="w-full h-full object-cover">
+                        </button>
+                        <button onclick="setSlide(4)" class="thumb-btn flex-shrink-0 w-16 h-12 rounded-xl overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition-all">
+                            <img src="https://i.postimg.cc/d7MZFnPg/lv-0-20260921220623.jpg" class="w-full h-full object-cover">
+                        </button>
+                        <button onclick="setSlide(5)" class="thumb-btn flex-shrink-0 w-16 h-12 rounded-xl overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition-all">
+                            <img src="https://i.postimg.cc/B8xLnD4N/lv-0-20260921220654.jpg" class="w-full h-full object-cover">
+                        </button>
+                        <button onclick="setSlide(6)" class="thumb-btn flex-shrink-0 w-16 h-12 rounded-xl overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition-all">
+                            <img src="https://i.postimg.cc/2q4bSvrc/lv-0-20260921220722.jpg" class="w-full h-full object-cover">
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Descrição e Detalhes -->
-                <div class="space-y-3">
+                <div class="space-y-3 pt-2">
                     <h3 class="font-bold text-base text-slate-200 flex items-center space-x-2">
                         <i class="fa-solid fa-circle-info text-emerald-400"></i>
                         <span>Sobre esta Skin</span>
                     </h3>
                     <p class="text-sm text-slate-400 leading-relaxed">
-                        Skin de alta qualidade e totalmente detalhada da Viatura Oficial da Polícia Militar da Estado da Bahia (PMBA) para o seu jogo de caminhão. Personalize seu veículo com o padrão operacional completo.
+                        Skin de alta qualidade e totalmente detalhada da Viatura Oficial da Polícia Militar do Estado da Bahia (PMBA) para o seu jogo de caminhão. Personalize seu veículo com o padrão operacional completo conferindo todas as imagens acima.
                     </p>
                 </div>
 
@@ -205,8 +251,80 @@
         <span>URL copiada com sucesso!</span>
     </div>
 
-    <!-- Script de Navegação e Cópia -->
+    <!-- Script de Navegação, Carrossel e Cópia -->
     <script>
+        // Array com os links das 7 fotos de demonstração
+        const slides = [
+            "https://i.postimg.cc/BLkXh6vD/lv-0-20260921220315.jpg",
+            "https://i.postimg.cc/wtKRzF8r/lv-0-20260921220404.jpg",
+            "https://i.postimg.cc/d7MZFnPx/lv-0-20260921220533.jpg",
+            "https://i.postimg.cc/R3rJmG5b/lv-0-20260921220555.jpg",
+            "https://i.postimg.cc/d7MZFnPg/lv-0-20260921220623.jpg",
+            "https://i.postimg.cc/B8xLnD4N/lv-0-20260921220654.jpg",
+            "https://i.postimg.cc/2q4bSvrc/lv-0-20260921220722.jpg"
+        ];
+
+        let currentSlide = 0;
+        let autoSlideInterval = null;
+
+        function updateSlide() {
+            const imgEl = document.getElementById('carouselImage');
+            const numEl = document.getElementById('currentSlideNum');
+            
+            // Efeito suave de transição
+            imgEl.style.opacity = '0';
+            setTimeout(() => {
+                imgEl.src = slides[currentSlide];
+                imgEl.style.opacity = '1';
+            }, 200);
+
+            numEl.textContent = currentSlide + 1;
+
+            // Atualizar bordas das miniaturas
+            const thumbs = document.querySelectorAll('.thumb-btn');
+            thumbs.forEach((btn, index) => {
+                if (index === currentSlide) {
+                    btn.classList.add('border-emerald-500', 'opacity-100');
+                    btn.classList.remove('border-transparent', 'opacity-60');
+                } else {
+                    btn.classList.remove('border-emerald-500', 'opacity-100');
+                    btn.classList.add('border-transparent', 'opacity-60');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlide();
+            resetAutoSlide();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlide();
+            resetAutoSlide();
+        }
+
+        function setSlide(index) {
+            currentSlide = index;
+            updateSlide();
+            resetAutoSlide();
+        }
+
+        // Passa automaticamente a cada 4 segundos
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                updateSlide();
+            }, 4000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        // Funções de navegação de telas
         function openSkinsPage() {
             document.getElementById('homeView').classList.add('hidden');
             document.getElementById('skinsView').classList.remove('hidden');
@@ -223,12 +341,14 @@
             document.getElementById('skinsView').classList.add('hidden');
             document.getElementById('detailsView').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            startAutoSlide(); // Inicia o carrossel automático ao abrir os detalhes
         }
 
         function closeDetailsPage() {
             document.getElementById('detailsView').classList.add('hidden');
             document.getElementById('skinsView').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            clearInterval(autoSlideInterval); // Para o carrossel ao sair da tela
         }
 
         function copyUrl(url) {

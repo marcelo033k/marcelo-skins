@@ -88,7 +88,7 @@
             </div>
         </div>
 
-        <!-- TELA 2: Página de Skins do Global Truck (Oculta por padrão) -->
+        <!-- TELA 2: Página de Skins do Global Truck (Carrossel) -->
         <div id="skinsView" class="hidden space-y-6">
             <!-- Botão de Voltar -->
             <button onclick="closeSkinsPage()" class="bg-slate-900 border border-slate-800 hover:border-emerald-500 text-slate-200 px-4 py-2.5 rounded-xl text-sm font-medium flex items-center space-x-2 transition-colors">
@@ -103,37 +103,60 @@
                 </div>
                 <div>
                     <h2 class="text-lg font-bold text-slate-100">Skins - Global Truck Online</h2>
-                    <p class="text-xs text-slate-400">Escolha sua skin abaixo e copie o link para usar no jogo.</p>
+                    <p class="text-xs text-slate-400">Arraste para o lado para ver as apresentações e copiar os links.</p>
                 </div>
             </div>
 
-            <!-- Lista de Skins (Exemplo de itens para você adicionar suas skins) -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                
-                <!-- Exemplo de Skin 1 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden p-4 space-y-3">
-                    <div class="h-40 bg-slate-800 rounded-xl overflow-hidden flex items-center justify-center">
-                        <img src="https://i.postimg.cc/7hPncQK3/file-00000000d2c0820eba94680e6e7fa08a.png" alt="Skin 1" class="w-full h-full object-cover">
-                    </div>
-                    <h4 class="font-bold text-sm text-slate-200">Skin Carreta Principal</h4>
-                    <button onclick="copyUrl('SUA_URL_DA_SKIN_1_AQUI')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center space-x-2 transition-colors active:scale-95">
-                        <i class="fa-solid fa-copy"></i>
-                        <span>Copiar URL da Skin</span>
-                    </button>
-                </div>
+            <!-- CARROSSEL DE SKINS -->
+            <div class="relative">
+                <!-- Botões de Navegação lateral -->
+                <button onclick="scrollCarousel(-1)" class="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-slate-900/80 hover:bg-emerald-500 hover:text-slate-950 text-white w-10 h-10 rounded-full flex items-center justify-center border border-slate-700 shadow-lg backdrop-blur-md transition-all hidden sm:flex">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button onclick="scrollCarousel(1)" class="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-slate-900/80 hover:bg-emerald-500 hover:text-slate-950 text-white w-10 h-10 rounded-full flex items-center justify-center border border-slate-700 shadow-lg backdrop-blur-md transition-all hidden sm:flex">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
 
-                <!-- Exemplo de Skin 2 (Você pode duplicar esse bloco para adicionar mais skins) -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden p-4 space-y-3">
-                    <div class="h-40 bg-slate-800 rounded-xl overflow-hidden flex items-center justify-center text-slate-500 text-xs">
-                        <span>Pré-visualização da Skin</span>
+                <!-- Container do Carrossel -->
+                <div id="carouselContainer" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-4 pb-4 pt-1 px-1">
+                    
+                    <!-- Item 1: VIATURA DA POLÍCIA MILITAR DA BAHIA -->
+                    <div class="min-w-[85%] sm:min-w-[420px] snap-center bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden p-4 space-y-3 flex-shrink-0">
+                        <div class="relative h-56 bg-slate-800 rounded-xl overflow-hidden flex items-center justify-center">
+                            <!-- Troque o link da imagem da viatura aqui -->
+                            <img src="https://i.postimg.cc/7hPncQK3/file-00000000d2c0820eba94680e6e7fa08a.png" alt="Viatura Polícia Militar da Bahia" class="w-full h-full object-cover">
+                            <span class="absolute top-3 right-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md z-10">
+                                Exclusiva
+                            </span>
+                        </div>
+                        <div>
+                            <span class="text-[10px] bg-emerald-500/10 text-emerald-400 font-bold px-2.5 py-1 rounded-md border border-emerald-500/20">Global Truck Online</span>
+                            <h4 class="font-bold text-base text-slate-100 mt-2">VIATURA DA POLÍCIA MILITAR DA BAHIA</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">Skin oficial detalhada e de alta qualidade.</p>
+                        </div>
+                        <button onclick="copyUrl('COLE_O_LINK_DA_SKIN_DA_VIATURA_AQUI')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 px-4 rounded-xl text-xs flex items-center justify-center space-x-2 transition-colors active:scale-95">
+                            <i class="fa-solid fa-copy"></i>
+                            <span>Copiar URL da Skin da Viatura</span>
+                        </button>
                     </div>
-                    <h4 class="font-bold text-sm text-slate-200">Skin Caminhão Baú</h4>
-                    <button onclick="copyUrl('SUA_URL_DA_SKIN_2_AQUI')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center space-x-2 transition-colors active:scale-95">
-                        <i class="fa-solid fa-copy"></i>
-                        <span>Copiar URL da Skin</span>
-                    </button>
-                </div>
 
+                    <!-- Item 2: Em Breve -->
+                    <div class="min-w-[85%] sm:min-w-[420px] snap-center bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden p-4 space-y-3 flex-shrink-0 opacity-80">
+                        <div class="relative h-56 bg-slate-800 rounded-xl overflow-hidden flex items-center justify-center text-slate-500 text-xs">
+                            <span>Próxima Skin em Breve</span>
+                        </div>
+                        <div>
+                            <span class="text-[10px] bg-slate-800 text-slate-400 font-bold px-2.5 py-1 rounded-md">Em breve</span>
+                            <h4 class="font-bold text-base text-slate-300 mt-2">Mais Skins Chegando</h4>
+                            <p class="text-xs text-slate-500 mt-0.5">Aguarde novas adições ao catálogo.</p>
+                        </div>
+                        <button disabled class="w-full bg-slate-800 text-slate-500 font-medium py-3 px-4 rounded-xl text-xs flex items-center justify-center space-x-2 cursor-not-allowed">
+                            <i class="fa-solid fa-lock"></i>
+                            <span>Em Breve</span>
+                        </button>
+                    </div>
+
+                </div>
             </div>
         </div>
 
@@ -162,6 +185,12 @@
             document.getElementById('skinsView').classList.add('hidden');
             document.getElementById('homeView').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function scrollCarousel(direction) {
+            const container = document.getElementById('carouselContainer');
+            const scrollAmount = 350;
+            container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
 
         function copyUrl(url) {
